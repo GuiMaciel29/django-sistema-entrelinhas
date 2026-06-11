@@ -13,3 +13,5 @@ def lista_pedidos(request):
         'pedidos/lista_pedidos.html',
         {'pedidos': pedidos}
     )
+def novo_pedido(request):
+    return render(request, 'pedidos/novo_pedido.html')
