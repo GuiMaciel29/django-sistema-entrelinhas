@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Pedido</title>
+    <link rel="stylesheet" href="{% static 'css/pedidos.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Novo Pedido</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label>Cliente</label>
+            <input type="text" name="cliente">
+
+            <label>Produto</label>
+            <input type="text" name="produto">
+
+            <label>Quantidade</label>
+            <input type="number" name="quantidade">
+
+            <button type="submit" class="btn btn-novo">
+                Salvar Pedido
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
