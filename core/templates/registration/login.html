@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Entre Linhas</title>
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="logo">
+        <h1>Entre Linhas</h1>
+        <p>Painel Administrativo</p>
+    </div>
+
+    {% if form.errors %}
+        <div class="erro">
+            Usuário ou senha inválidos.
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Entrar
+        </button>
+    </form>
+
+    <div class="footer">
+        Sistema de Gestão da Gráfica
+    </div>
+
+</div>
+
+</body>
+</html>

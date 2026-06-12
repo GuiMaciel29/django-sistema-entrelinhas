@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estoque</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/estoque.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Controle de Estoque</h1>
+
+    <a href="{% url 'novo_produto' %}" class="btn">
+        Novo Material
+    </a>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Quantidade</th>
+                <th>Mínimo</th>
+                <th>Custo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for produto in produtos %}
+            <tr>
+
+                <td>{{ produto.nome }}</td>
+
+                <td>
+
+                    {% if produto.quantidade <= produto.estoque_minimo %}
+                        <span class="baixo">
+                            {{ produto.quantidade }}
+                        </span>
+                    {% else %}
+                        {{ produto.quantidade }}
+                    {% endif %}
+
+                </td>
+
+                <td>
+                    {{ produto.estoque_minimo }}
+                </td>
+
+                <td>
+                    R$ {{ produto.custo_unitario }}
+                </td>
+
+                <td>
+
+                    <a href="{% url 'editar_produto' produto.id %}">
+                        Editar
+                    </a>
+
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

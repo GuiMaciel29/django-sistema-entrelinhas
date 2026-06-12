@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entre Linhas Gráfica</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        ENTRE LINHAS GRÁFICA
+    </div>
+
+    <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="{% url 'novo_pedido' %}">Pedidos</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Transformamos suas ideias em impressões de qualidade</h1>
+
+        <p>
+            Banners, adesivos, cartões, camisas, fachadas,
+            canecas personalizadas e muito mais.
+        </p>
+
+        <a href="{% url 'novo_pedido' %}" class="btn">
+            Solicitar Orçamento
+        </a>
+
+    </div>
+
+</section>
+
+<section class="estatisticas">
+
+    <div class="card-estat">
+        <h2>500+</h2>
+        <p>Clientes Atendidos</p>
+    </div>
+
+    <div class="card-estat">
+        <h2>2000+</h2>
+        <p>Pedidos Entregues</p>
+    </div>
+
+    <div class="card-estat">
+        <h2>99%</h2>
+        <p>Satisfação</p>
+    </div>
+
+</section>
+
+<section id="servicos">
+
+    <h2>Nossos Serviços</h2>
+
+    <div class="grid-servicos">
+
+        <div class="servico">
+            <img src="{% static 'img/banner.jpg' %}" alt="">
+            <h3>Banner</h3>
+        </div>
+
+        <div class="servico">
+            <img src="{% static 'img/cartao.jpg' %}" alt="">
+            <h3>Cartão de Visita</h3>
+        </div>
+
+        <div class="servico">
+            <img src="{% static 'img/adesivo.jpg' %}" alt="">
+            <h3>Adesivos</h3>
+        </div>
+
+        <div class="servico">
+            <img src="{% static 'img/camisa.jpg' %}" alt="">
+            <h3>Camisas</h3>
+        </div>
+
+        <div class="servico">
+            <img src="{% static 'img/caneca.jpg' %}" alt="">
+            <h3>Canecas</h3>
+        </div>
+
+        <div class="servico">
+            <img src="{% static 'img/fachada.jpg' %}" alt="">
+            <h3>Fachadas</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <h2>Pronto para fazer seu pedido?</h2>
+
+    <a href="{% url 'novo_pedido' %}" class="btn">
+        Fazer Pedido
+    </a>
+
+</section>
+
+<section id="contato">
+
+    <h2>Contato</h2>
+
+    <p>WhatsApp: (81) 99999-9999</p>
+
+    <p>Email: contato@entrelinhas.com</p>
+
+</section>
+
+<footer>
+    © 2026 Entre Linhas Gráfica
+</footer>
+
+</body>
+</html>
