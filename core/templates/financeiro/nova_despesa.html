@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Despesa</title>
+
+    <link rel="stylesheet" href="{% static 'css/novo_pedido.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Nova Despesa</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="descricao" required>
+            </div>
+
+            <div class="form-group">
+                <label>Categoria</label>
+
+                <select name="categoria">
+                    <option>Papel</option>
+                    <option>Tinta</option>
+                    <option>Energia</option>
+                    <option>Internet</option>
+                    <option>Funcionário</option>
+                    <option>Equipamentos</option>
+                    <option>Outros</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Valor</label>
+                <input type="number" step="0.01" name="valor" required>
+            </div>
+
+            <div class="form-group">
+                <label>Data</label>
+                <input type="date" name="data" required>
+            </div>
+
+            <button class="btn btn-salvar">
+                Salvar Despesa
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

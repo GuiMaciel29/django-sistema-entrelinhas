@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Despesas</title>
+
+    <link rel="stylesheet" href="{% static 'css/despesas.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 🔙 Botão voltar -->
+    <a href="{% url 'dashboard' %}" class="btn-voltar">
+        ← Voltar ao Dashboard
+    </a>
+
+    <h1>Controle de Despesas</h1>
+
+    <!-- ➕ Botão nova despesa -->
+    <a href="{% url 'nova_despesa' %}" class="btn">
+        Nova Despesa
+    </a>
+
+    <!-- 💰 Total -->
+    <div class="total-card">
+        <h3>Total de Despesas</h3>
+        <p>R$ {{ total }}</p>
+    </div>
+
+    <!-- 📊 Tabela -->
+    <table>
+
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for despesa in despesas %}
+            <tr>
+                <td>{{ despesa.descricao }}</td>
+
+                <td>
+                    <span class="badge">
+                        {{ despesa.categoria }}
+                    </span>
+                </td>
+
+                <td>R$ {{ despesa.valor }}</td>
+                <td>{{ despesa.data }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

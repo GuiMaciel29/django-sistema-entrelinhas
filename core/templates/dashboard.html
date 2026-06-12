@@ -1,93 +1,82 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Administrativo</title>
-
+    <title>Dashboard - Entre Linhas</title>
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 </head>
 <body>
 
 <div class="sidebar">
-
-    <h2>Entre Linhas</h2>
-
-    <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="{% url 'lista_pedidos' %}" class="card-menu">📋 Pedidos</a></li>
-        <li><a href="#">Clientes</a></li>
-        <li><a href="#">Produção</a></li>
-        <li>  <a href="{% url 'estoque' %}" class="card-menu">📦 Estoque</a> <li>
-        <li><a href="#">Receitas</a></li>
-        <li><a href="#">Despesas</a></li>
-        <li><a href="#">Relatórios</a></li>
-        <li><a href="#">Configurações</a></li>
-    </ul>
-
+    <div class="logo">
+        <h2>Entre Linhas</h2>
+    </div>
+    <nav>
+        <a href="{% url 'dashboard' %}" class="active">📊 Dashboard</a>
+        <a href="{% url 'lista_pedidos' %}">📋 Pedidos</a>
+        <a href="{% url 'estoque' %}">📦 Estoque</a>
+        <a href="{% url 'receitas' %}">💰 Receitas</a>
+        <a href="{% url 'despesas' %}">💸 Despesas</a>
+        <a href="/admin/">⚙ Administração</a>
+        <a href="{% url 'logout' %}">🚪 Sair</a>
+    </nav>
 </div>
 
-<div class="content">
+<div class="main">
 
-    <h1>Dashboard</h1>
+    <header>
+        <h1>Painel Administrativo</h1>
+        <p>Controle completo da gráfica</p>
+    </header>
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>Pedidos Hoje</h3>
-            <span>25</span>
+    <!-- Financeiro -->
+    <section class="cards">
+        <div class="card receita">
+            <h3>Receitas</h3>
+            <div class="valor">R$ {{ receitas }}</div>
         </div>
-
-        <div class="card">
-            <h3>Em Produção</h3>
-            <span>14</span>
-        </div>
-
-        <div class="card">
-            <h3>Faturamento</h3>
-            <span>R$ 8.520</span>
-        </div>
-
-        <div class="card">
+        <div class="card despesa">
             <h3>Despesas</h3>
-            <span>R$ 2.100</span>
+            <div class="valor">R$ {{ despesas }}</div>
         </div>
+        <div class="card lucro">
+            <h3>Lucro</h3>
+            <div class="valor">R$ {{ lucro }}</div>
+        </div>
+        <div class="card pedidos">
+            <h3>Total Pedidos</h3>
+            <div class="valor">{{ total_pedidos }}</div>
+        </div>
+    </section>
 
-    </div>
+    <!-- Status dos pedidos -->
+    <section class="cards">
+        <div class="card status">
+            <h3>Em Produção</h3>
+            <div class="valor">{{ producao }}</div>
+        </div>
+        <div class="card status">
+            <h3>Prontos</h3>
+            <div class="valor">{{ prontos }}</div>
+        </div>
+        <div class="card status">
+            <h3>Entregues</h3>
+            <div class="valor">{{ entregues }}</div>
+        </div>
+    </section>
 
-    <div class="tabela">
-
-        <h2>Últimos Pedidos</h2>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Cliente</th>
-                    <th>Serviço</th>
-                    <th>Status</th>
-                    <th>Entrega</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                {% for pedido in pedidos %}
-                <tr>
-                    <td>{{ pedido.cliente }}</td>
-                    <td>{{ pedido.servico }}</td>
-                    <td>{{ pedido.get_status_display }}</td>
-                    <td>{{ pedido.data_entrega }}</td>
-                </tr>
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-
-    </div>
+    <!-- Atalhos -->
+    <section class="atalhos">
+        <h2>Acesso Rápido</h2>
+        <div class="atalhos-grid">
+            <a href="{% url 'novo_pedido' %}" class="atalho">➕ Novo Pedido</a>
+            <a href="{% url 'novo_produto' %}" class="atalho">📦 Novo Produto</a>
+            <a href="{% url 'nova_receita' %}" class="atalho">💰 Nova Receita</a>
+            <a href="{% url 'nova_despesa' %}" class="atalho">💸 Nova Despesa</a>
+        </div>
+    </section>
 
 </div>
 

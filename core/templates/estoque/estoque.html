@@ -1,76 +1,113 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Estoque</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque</title>
 
-    <link rel="stylesheet"
-          href="{% static 'css/estoque.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estoque.css' %}">
 </head>
 <body>
 
 <div class="container">
 
-    <h1>Controle de Estoque</h1>
+    <div class="topo">
 
-    <a href="{% url 'novo_produto' %}" class="btn">
-        Novo Material
-    </a>
+        <div>
+            <h1>📦 Controle de Estoque</h1>
+            <p>Gerencie os materiais da gráfica</p>
+        </div>
 
-    <table>
+        <a href="{% url 'novo_produto' %}" class="btn-novo">
+            + Novo Material
+        </a>
 
-        <thead>
-            <tr>
-                <th>Material</th>
-                <th>Quantidade</th>
-                <th>Mínimo</th>
-                <th>Custo</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
+    </div>
 
-        <tbody>
+    <div class="card">
 
-            {% for produto in produtos %}
-            <tr>
+        <table>
 
-                <td>{{ produto.nome }}</td>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Material</th>
+                    <th>Quantidade</th>
+                    <th>Estoque Mínimo</th>
+                    <th>Custo Unitário</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
 
-                <td>
+            <tbody>
 
-                    {% if produto.quantidade <= produto.estoque_minimo %}
-                        <span class="baixo">
-                            {{ produto.quantidade }}
-                        </span>
-                    {% else %}
-                        {{ produto.quantidade }}
-                    {% endif %}
+                {% for produto in produtos %}
 
-                </td>
+                <tr>
 
-                <td>
-                    {{ produto.estoque_minimo }}
-                </td>
+                    <td>{{ produto.id }}</td>
 
-                <td>
-                    R$ {{ produto.custo_unitario }}
-                </td>
+                    <td>{{ produto.nome }}</td>
 
-                <td>
+                    <td>{{ produto.quantidade }}</td>
 
-                    <a href="{% url 'editar_produto' produto.id %}">
-                        Editar
-                    </a>
+                    <td>{{ produto.estoque_minimo }}</td>
 
-                </td>
+                    <td>R$ {{ produto.custo_unitario }}</td>
 
-            </tr>
-            {% endfor %}
+                    <td>
 
-        </tbody>
+                        {% if produto.quantidade <= produto.estoque_minimo %}
+                            <span class="status baixo">
+                                Estoque Baixo
+                            </span>
+                        {% else %}
+                            <span class="status normal">
+                                Normal
+                            </span>
+                        {% endif %}
 
-    </table>
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{% url 'editar_produto' produto.id %}"
+                            class="btn-editar"
+                        >
+                            Editar
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="7" class="vazio">
+                        Nenhum material cadastrado.
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="acoes">
+
+        <a href="{% url 'dashboard' %}" class="btn-voltar">
+            ← Voltar ao Dashboard
+        </a>
+
+    </div>
 
 </div>
 

@@ -1,43 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
 body{
-    font-family:Arial;
-    background:#f4f6f9;
+    background:#f1f5f9;
+    padding:30px;
 }
 
 .container{
-    width:90%;
-    margin:40px auto;
+    max-width:1400px;
+    margin:auto;
 }
 
-h1{
-    margin-bottom:20px;
+.topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
 }
 
-.btn{
+.topo h1{
+    color:#0f172a;
+    margin-bottom:5px;
+}
+
+.topo p{
+    color:#64748b;
+}
+
+.btn-novo{
+    text-decoration:none;
     background:#2563eb;
     color:white;
-    padding:10px 20px;
-    text-decoration:none;
-    border-radius:8px;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-novo:hover{
+    background:#1d4ed8;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 table{
     width:100%;
-    background:white;
-    margin-top:20px;
     border-collapse:collapse;
 }
 
-th{
-    background:#2563eb;
+thead{
+    background:#0f172a;
     color:white;
 }
 
-th,td{
-    padding:15px;
-    border:1px solid #ddd;
+thead th{
+    padding:18px;
+    text-align:left;
+}
+
+tbody td{
+    padding:16px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+tbody tr:hover{
+    background:#f8fafc;
+}
+
+.status{
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.normal{
+    background:#dcfce7;
+    color:#15803d;
 }
 
 .baixo{
-    color:red;
-    font-weight:bold;
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.btn-editar{
+    text-decoration:none;
+    background:#f59e0b;
+    color:white;
+    padding:8px 12px;
+    border-radius:8px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.btn-editar:hover{
+    background:#d97706;
+}
+
+.vazio{
+    text-align:center;
+    padding:35px;
+    color:#94a3b8;
+}
+
+.acoes{
+    margin-top:20px;
+}
+
+.btn-voltar{
+    text-decoration:none;
+    background:#334155;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+}
+
+.btn-voltar:hover{
+    background:#1e293b;
+}
+
+@media(max-width:1000px){
+
+    body{
+        padding:15px;
+    }
+
+    .topo{
+        flex-direction:column;
+        gap:15px;
+        align-items:flex-start;
+    }
+
+    .card{
+        overflow-x:auto;
+    }
+
+    table{
+        min-width:900px;
+    }
 }

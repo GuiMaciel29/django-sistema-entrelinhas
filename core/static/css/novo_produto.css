@@ -1,0 +1,145 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.container{
+    width:100%;
+    max-width:800px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.cabecalho{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.cabecalho h1{
+    color:#0f172a;
+    margin-bottom:8px;
+}
+
+.cabecalho p{
+    color:#64748b;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    color:#334155;
+    font-weight:600;
+}
+
+.form-group input{
+    padding:14px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+}
+
+.form-group input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+}
+
+.info{
+    margin-top:5px;
+}
+
+.info-card{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:15px;
+    border-radius:10px;
+    color:#1e3a8a;
+    font-size:14px;
+}
+
+.acoes{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:15px;
+}
+
+.btn-salvar{
+    background:#22c55e;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-salvar:hover{
+    background:#16a34a;
+}
+
+.btn-voltar{
+    text-decoration:none;
+    background:#64748b;
+    color:white;
+    padding:12px 25px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-voltar:hover{
+    background:#475569;
+}
+
+@media(max-width:768px){
+
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    .acoes{
+        flex-direction:column;
+    }
+
+    .btn-salvar,
+    .btn-voltar{
+        width:100%;
+        text-align:center;
+    }
+
+}

@@ -17,6 +17,12 @@ urlpatterns = [
     path('estoque/', views.estoque, name='estoque'),
     path('estoque/novo/', views.novo_produto, name='novo_produto'),
     path('estoque/editar/<int:id>/', views.editar_produto, name='editar_produto'),
+
+    # FINANCEIRO
+    path('receitas/',views.receitas,name='receitas'),
+    path('receitas/nova/',views.nova_receita,name='nova_receita'),
+    path('despesas/',views.despesas,name='despesas'),
+    path('despesas/nova/',views.nova_despesa,name='nova_despesa'),
 ]
 
 if settings.DEBUG:
@@ -24,6 +30,3 @@ if settings.DEBUG:
         settings.MEDIA_URL,
         document_root=settings.MEDIA_ROOT
     )
-
-
-
