@@ -72,20 +72,30 @@ def dashboard(request):
 # PEDIDOS
 # ===================================
 
+# LISTAR PEDIDOS
 @login_required
 def lista_pedidos(request):
 
-    pedidos = Pedido.objects.order_by('-id')
+    busca = request.GET.get('busca')
+
+    pedidos = Pedido.objects.all().order_by('-id')
+
+    if busca:
+        pedidos = pedidos.filter(
+            cliente__icontains=busca
+        )
 
     return render(
         request,
         'pedidos/lista_pedidos.html',
         {
-            'pedidos': pedidos
+            'pedidos': pedidos,
+            'busca': busca
         }
     )
 
 
+# NOVO PEDIDO
 @login_required
 def novo_pedido(request):
 
@@ -108,6 +118,62 @@ def novo_pedido(request):
     return render(
         request,
         'pedidos/novo_pedido.html'
+    )
+
+
+# EDITAR PEDIDO
+@login_required
+def editar_pedido(request, id):
+
+    pedido = get_object_or_404(
+        Pedido,
+        id=id
+    )
+
+    if request.method == 'POST':
+
+        pedido.cliente = request.POST.get('cliente')
+        pedido.telefone = request.POST.get('telefone')
+        pedido.servico = request.POST.get('servico')
+        pedido.descricao = request.POST.get('descricao')
+        pedido.valor = request.POST.get('valor')
+        pedido.sinal_pago = request.POST.get('sinal_pago') or 0
+        pedido.data_entrega = request.POST.get('data_entrega')
+        pedido.status = request.POST.get('status')
+
+        if request.FILES.get('arte_cliente'):
+            pedido.arte_cliente = request.FILES.get(
+                'arte_cliente'
+            )
+
+        pedido.save()
+
+        return redirect(
+            'lista_pedidos'
+        )
+
+    return render(
+        request,
+        'pedidos/editar_pedido.html',
+        {
+            'pedido': pedido
+        }
+    )
+
+
+# EXCLUIR PEDIDO
+@login_required
+def excluir_pedido(request, id):
+
+    pedido = get_object_or_404(
+        Pedido,
+        id=id
+    )
+
+    pedido.delete()
+
+    return redirect(
+        'lista_pedidos'
     )
 
 

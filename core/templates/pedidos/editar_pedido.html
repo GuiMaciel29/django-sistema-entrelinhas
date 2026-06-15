@@ -1,0 +1,186 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Pedido</title>
+
+```
+<link rel="stylesheet" href="{% static 'css/novo_pedido.css' %}">
+```
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<div class="card">
+
+    <h1>Editar Pedido</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Cliente</label>
+            <input
+                type="text"
+                name="cliente"
+                value="{{ pedido.cliente }}"
+                required
+            >
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+                <label>Telefone</label>
+                <input
+                    type="text"
+                    name="telefone"
+                    value="{{ pedido.telefone }}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Serviço</label>
+                <input
+                    type="text"
+                    name="servico"
+                    value="{{ pedido.servico }}"
+                    required
+                >
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Descrição</label>
+            <textarea
+                name="descricao"
+                rows="4"
+            >{{ pedido.descricao }}</textarea>
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+                <label>Valor Total</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    name="valor"
+                    value="{{ pedido.valor }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Sinal Pago</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    name="sinal_pago"
+                    value="{{ pedido.sinal_pago }}"
+                >
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+                <label>Data de Entrega</label>
+                <input
+                    type="date"
+                    name="data_entrega"
+                    value="{{ pedido.data_entrega|date:'Y-m-d' }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="ORCAMENTO"
+                    {% if pedido.status == 'ORCAMENTO' %}selected{% endif %}>
+                        Orçamento
+                    </option>
+
+                    <option value="PRODUCAO"
+                    {% if pedido.status == 'PRODUCAO' %}selected{% endif %}>
+                        Produção
+                    </option>
+
+                    <option value="PRONTO"
+                    {% if pedido.status == 'PRONTO' %}selected{% endif %}>
+                        Pronto
+                    </option>
+
+                    <option value="ENTREGUE"
+                    {% if pedido.status == 'ENTREGUE' %}selected{% endif %}>
+                        Entregue
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Nova Arte</label>
+
+            <input
+                type="file"
+                name="arte_cliente"
+            >
+
+            {% if pedido.arte_cliente %}
+            <p style="margin-top:10px;">
+                Arquivo atual:
+                <a href="{{ pedido.arte_cliente.url }}" target="_blank">
+                    Visualizar
+                </a>
+            </p>
+            {% endif %}
+
+        </div>
+
+        <div class="acoes">
+
+            <button
+                type="submit"
+                class="btn btn-salvar"
+            >
+                Salvar Alterações
+            </button>
+
+            <a
+                href="{% url 'lista_pedidos' %}"
+                class="btn btn-voltar"
+            >
+                Voltar
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

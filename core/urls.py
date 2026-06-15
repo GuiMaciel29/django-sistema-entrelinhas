@@ -10,8 +10,11 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
 
     # PEDIDOS
-    path('pedidos/', views.lista_pedidos, name='lista_pedidos'),
-    path('pedidos/novo/', views.novo_pedido, name='novo_pedido'),
+
+    path('pedidos/',views.lista_pedidos,name='lista_pedidos'),
+    path('pedidos/novo/',views.novo_pedido,name='novo_pedido'),
+    path('pedidos/editar/<int:id>/',views.editar_pedido,name='editar_pedido'),
+    path('pedidos/excluir/<int:id>/',views.excluir_pedido,name='excluir_pedido'),
 
     # ESTOQUE
     path('estoque/', views.estoque, name='estoque'),

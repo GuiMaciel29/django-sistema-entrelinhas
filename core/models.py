@@ -52,20 +52,15 @@ class Pedido(models.Model):
         null=True
     )
 
-    observacoes = models.TextField(
-        blank=True
-    )
-
     criado_em = models.DateTimeField(
         auto_now_add=True
     )
 
-    @property
     def saldo(self):
         return self.valor - self.sinal_pago
 
     def __str__(self):
-        return f"{self.cliente} - {self.servico}"
+        return f'{self.cliente} - {self.servico}'
 
 
 class ProdutoEstoque(models.Model):

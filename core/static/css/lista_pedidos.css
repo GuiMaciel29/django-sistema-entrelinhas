@@ -1,0 +1,187 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f1f5f9;
+padding:30px;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1400px;
+margin:auto;
+}
+
+/* TOPO */
+
+.topo{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.topo h1{
+color:#0f172a;
+font-size:32px;
+}
+
+.btn-novo{
+background:#2563eb;
+color:white;
+text-decoration:none;
+padding:12px 20px;
+border-radius:10px;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-novo:hover
+
+/* BUSCA */
+
+.busca{
+display:flex;
+gap:10px;
+margin-bottom:25px;
+}
+
+.busca input{
+flex:1;
+padding:12px;
+border:1px solid #cbd5e1;
+border-radius:10px;
+outline:none;
+}
+
+.busca button{
+background:#0f172a;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* TABELA */
+
+.tabela-container{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+thead{
+background:#0f172a;
+color:white;
+}
+
+thead th{
+padding:15px;
+text-align:left;
+}
+
+tbody td{
+padding:15px;
+border-bottom:1px solid #e2e8f0;
+}
+
+tbody tr:hover
+
+/* STATUS */
+
+.status{
+padding:6px 12px;
+border-radius:20px;
+color:white;
+font-size:12px;
+font-weight:600;
+}
+
+.orcamento{
+background:#f59e0b;
+}
+
+.producao{
+background:#3b82f6;
+}
+
+.pronto{
+background:#22c55e;
+}
+
+.entregue{
+background:#16a34a;
+}
+
+/* BOTÕES */
+
+.acoes{
+display:flex;
+gap:8px;
+}
+
+.btn-editar{
+text-decoration:none;
+background:#3b82f6;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+}
+
+.btn-excluir{
+text-decoration:none;
+background:#ef4444;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+}
+
+.btn-ver{
+text-decoration:none;
+background:#22c55e;
+color:white;
+padding:8px 12px;
+border-radius:8px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+
+body{
+    padding:15px;
+}
+
+.topo{
+    flex-direction:column;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.busca{
+    flex-direction:column;
+}
+
+.tabela-container{
+    overflow-x:auto;
+}
+
+table{
+    min-width:1200px;
+}
+
+
+}
