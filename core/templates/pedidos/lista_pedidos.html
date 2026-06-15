@@ -103,7 +103,7 @@
 
                         {% if pedido.arte_cliente %}
 
-                        
+                        <a
                             href="{{ pedido.arte_cliente.url }}"
                             target="_blank"
                             class="btn-ver"
@@ -121,14 +121,14 @@
 
                     <td class="acoes">
 
-                        
+                        <a
                             href="{% url 'editar_pedido' pedido.id %}"
                             class="btn-editar"
                         >
                             ✏️
                         </a>
 
-                        
+                        <a
                             href="{% url 'excluir_pedido' pedido.id %}"
                             class="btn-excluir"
                             onclick="return confirm('Deseja realmente excluir este pedido?')"
