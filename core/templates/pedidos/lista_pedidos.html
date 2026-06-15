@@ -1,165 +1,162 @@
 {% load static %}
 
 <!DOCTYPE html>
-
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos</title>
-
-```
-<link rel="stylesheet" href="{% static 'css/lista_pedidos.css' %}">
-```
-
+    <link rel="stylesheet" href="{% static 'css/lista_pedidos.css' %}">
 </head>
 
 <body>
 
 <div class="container">
 
-```
-<div class="topo">
+    <div class="topo">
 
-    <h1>Pedidos</h1>
+        <a href="{% url 'dashboard' %}" class="btn-voltar">
+            ⬅️ Voltar
+        </a>
 
-    <a href="{% url 'novo_pedido' %}" class="btn-novo">
-        ➕ Novo Pedido
-    </a>
+        <h1>Pedidos</h1>
 
-</div>
+        <a href="{% url 'novo_pedido' %}" class="btn-novo">
+            ➕ Novo Pedido
+        </a>
 
-<form method="GET" class="busca">
+    </div>
 
-    <input
-        type="text"
-        name="busca"
-        placeholder="Buscar cliente..."
-        value="{{ busca|default:'' }}"
-    >
+    <form method="GET" class="busca">
 
-    <button type="submit">
-        🔍 Buscar
-    </button>
+        <input
+            type="text"
+            name="busca"
+            placeholder="Buscar cliente..."
+            value="{{ busca|default:'' }}"
+        >
 
-</form>
+        <button type="submit">
+            🔍 Buscar
+        </button>
 
-<div class="tabela-container">
+    </form>
 
-    <table>
+    <div class="tabela-container">
 
-        <thead>
+        <table>
 
-            <tr>
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Telefone</th>
-                <th>Serviço</th>
-                <th>Valor</th>
-                <th>Sinal</th>
-                <th>Saldo</th>
-                <th>Entrega</th>
-                <th>Status</th>
-                <th>Arte</th>
-                <th>Ações</th>
-            </tr>
+            <thead>
 
-        </thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Telefone</th>
+                    <th>Serviço</th>
+                    <th>Valor</th>
+                    <th>Sinal</th>
+                    <th>Saldo</th>
+                    <th>Entrega</th>
+                    <th>Status</th>
+                    <th>Arte</th>
+                    <th>Ações</th>
+                </tr>
 
-        <tbody>
+            </thead>
 
-            {% for pedido in pedidos %}
+            <tbody>
 
-            <tr>
+                {% for pedido in pedidos %}
 
-                <td>{{ pedido.id }}</td>
+                <tr>
 
-                <td>{{ pedido.cliente }}</td>
+                    <td>{{ pedido.id }}</td>
 
-                <td>{{ pedido.telefone }}</td>
+                    <td>{{ pedido.cliente }}</td>
 
-                <td>{{ pedido.servico }}</td>
+                    <td>{{ pedido.telefone }}</td>
 
-                <td>R$ {{ pedido.valor }}</td>
+                    <td>{{ pedido.servico }}</td>
 
-                <td>R$ {{ pedido.sinal_pago }}</td>
+                    <td>R$ {{ pedido.valor }}</td>
 
-                <td>
-                    R$ {{ pedido.saldo }}
-                </td>
+                    <td>R$ {{ pedido.sinal_pago }}</td>
 
-                <td>
-                    {{ pedido.data_entrega|date:"d/m/Y" }}
-                </td>
+                    <td>
+                        R$ {{ pedido.saldo }}
+                    </td>
 
-                <td>
+                    <td>
+                        {{ pedido.data_entrega|date:"d/m/Y" }}
+                    </td>
 
-                    <span class="status {{ pedido.status|lower }}">
-                        {{ pedido.get_status_display }}
-                    </span>
+                    <td>
 
-                </td>
+                        <span class="status {{ pedido.status|lower }}">
+                            {{ pedido.get_status_display }}
+                        </span>
 
-                <td>
+                    </td>
 
-                    {% if pedido.arte_cliente %}
+                    <td>
 
-                    <a
-                        href="{{ pedido.arte_cliente.url }}"
-                        target="_blank"
-                        class="btn-ver"
-                    >
-                        Ver
-                    </a>
+                        {% if pedido.arte_cliente %}
 
-                    {% else %}
+                        
+                            href="{{ pedido.arte_cliente.url }}"
+                            target="_blank"
+                            class="btn-ver"
+                        >
+                            Ver
+                        </a>
 
-                    -
+                        {% else %}
 
-                    {% endif %}
+                        -
 
-                </td>
+                        {% endif %}
 
-                <td class="acoes">
+                    </td>
 
-                    <a
-                        href="{% url 'editar_pedido' pedido.id %}"
-                        class="btn-editar"
-                    >
-                        ✏️
-                    </a>
+                    <td class="acoes">
 
-                    <a
-                        href="{% url 'excluir_pedido' pedido.id %}"
-                        class="btn-excluir"
-                        onclick="return confirm('Deseja realmente excluir este pedido?')"
-                    >
-                        🗑️
-                    </a>
+                        
+                            href="{% url 'editar_pedido' pedido.id %}"
+                            class="btn-editar"
+                        >
+                            ✏️
+                        </a>
 
-                </td>
+                        
+                            href="{% url 'excluir_pedido' pedido.id %}"
+                            class="btn-excluir"
+                            onclick="return confirm('Deseja realmente excluir este pedido?')"
+                        >
+                            🗑️
+                        </a>
 
-            </tr>
+                    </td>
 
-            {% empty %}
+                </tr>
 
-            <tr>
+                {% empty %}
 
-                <td colspan="11">
-                    Nenhum pedido encontrado.
-                </td>
+                <tr>
 
-            </tr>
+                    <td colspan="11">
+                        Nenhum pedido encontrado.
+                    </td>
 
-            {% endfor %}
+                </tr>
 
-        </tbody>
+                {% endfor %}
 
-    </table>
+            </tbody>
 
-</div>
-```
+        </table>
+
+    </div>
 
 </div>
 
