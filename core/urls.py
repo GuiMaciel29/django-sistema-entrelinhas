@@ -1,35 +1,103 @@
 from django.urls import path
-from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+from . import views
+
 urlpatterns = [
 
-    path('', views.home, name='home'),
 
-    path('dashboard/', views.dashboard, name='dashboard'),
+# HOME
+path('', views.home, name='home'),
 
-    # PEDIDOS
+# DASHBOARD
+path('dashboard/', views.dashboard, name='dashboard'),
 
-    path('pedidos/',views.lista_pedidos,name='lista_pedidos'),
-    path('pedidos/novo/',views.novo_pedido,name='novo_pedido'),
-    path('pedidos/editar/<int:id>/',views.editar_pedido,name='editar_pedido'),
-    path('pedidos/excluir/<int:id>/',views.excluir_pedido,name='excluir_pedido'),
+# ==========================
+# PEDIDOS
+# ==========================
+path(
+    'pedidos/',
+    views.lista_pedidos,
+    name='lista_pedidos'
+),
 
-    # ESTOQUE
-    path('estoque/', views.estoque, name='estoque'),
-    path('estoque/novo/', views.novo_produto, name='novo_produto'),
-    path('estoque/editar/<int:id>/', views.editar_produto, name='editar_produto'),
+path(
+    'pedidos/novo/',
+    views.novo_pedido,
+    name='novo_pedido'
+),
 
-    # FINANCEIRO
-    path('receitas/',views.receitas,name='receitas'),
-    path('receitas/nova/',views.nova_receita,name='nova_receita'),
-    path('despesas/',views.despesas,name='despesas'),
-    path('despesas/nova/',views.nova_despesa,name='nova_despesa'),
+path(
+    'pedidos/editar/<int:id>/',
+    views.editar_pedido,
+    name='editar_pedido'
+),
+
+path(
+    'pedidos/excluir/<int:id>/',
+    views.excluir_pedido,
+    name='excluir_pedido'
+),
+
+# ==========================
+# ESTOQUE
+# ==========================
+path(
+    'estoque/',
+    views.estoque,
+    name='estoque'
+),
+
+path(
+    'estoque/novo/',
+    views.novo_produto,
+    name='novo_produto'
+),
+
+path(
+    'estoque/editar/<int:id>/',
+    views.editar_produto,
+    name='editar_produto'
+),
+
+# ==========================
+# FINANCEIRO - RECEITAS
+# ==========================
+path(
+    'receitas/',
+    views.receitas,
+    name='receitas'
+),
+
+path(
+    'receitas/nova/',
+    views.nova_receita,
+    name='nova_receita'
+),
+
+# ==========================
+# FINANCEIRO - DESPESAS
+# ==========================
+path(
+    'despesas/',
+    views.despesas,
+    name='despesas'
+),
+
+path(
+    'despesas/nova/',
+    views.nova_despesa,
+    name='nova_despesa'
+),
+
+
 ]
+
+# MEDIA FILES
 
 if settings.DEBUG:
     urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)
