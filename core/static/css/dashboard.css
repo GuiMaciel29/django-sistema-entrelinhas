@@ -65,9 +65,11 @@ CONTEÚDO
 ========================= */
 
 .main-content{
-margin-left:270px;
-flex:1;
-padding:35px;
+    margin-left:300px;
+    width:calc(100% - 300px);
+    min-height:100vh;
+    padding:35px;
+    background:red;
 }
 
 /* =========================
