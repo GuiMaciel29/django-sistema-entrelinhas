@@ -55,79 +55,84 @@ nav a:hover
 /* HERO */
 
 .hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:140px 5% 80px;
+    min-height:100vh;
 
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-background:
-radial-gradient(circle at top left,#2563eb55 0%,transparent 35%),
-radial-gradient(circle at top right,#7c3aed55 0%,transparent 35%),
-radial-gradient(circle at bottom,#06b6d455 0%,transparent 40%),
-#030712;
+    text-align:center;
 
+    padding-top:220px;
+    padding-right:5%;
+    padding-bottom:80px;
+    padding-left:5%;
 
+    background:
+    radial-gradient(circle at top left,#2563eb55 0%,transparent 35%),
+    radial-gradient(circle at top right,#7c3aed55 0%,transparent 35%),
+    radial-gradient(circle at bottom,#06b6d455 0%,transparent 40%),
+    #030712;
 }
 
 .hero-content{
-width:100%;
-max-width:1200px;
-margin:0 auto;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
 }
 
 .hero h1{
-font-size:clamp(3rem,7vw,6rem);
-font-weight:800;
-line-height:1.1;
-margin-bottom:25px;
+    font-size:clamp(3rem,6vw,5.8rem);
+    font-weight:800;
+    line-height:1.1;
+    margin-bottom:30px;
+    color:#fff;
 }
 
 .hero p{
-max-width:800px;
-margin:0 auto 40px;
-font-size:1.3rem;
-color:#cbd5e1;
-line-height:1.7;
+    max-width:900px;
+    margin:0 auto 40px auto;
+    font-size:1.4rem;
+    line-height:1.7;
+    color:#cbd5e1;
 }
 
 .hero-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .btn-whatsapp,
 .btn-login{
-padding:18px 35px;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-transition:.3s;
+    padding:18px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
 }
 
 .btn-whatsapp{
-background:#22c55e;
-color:white;
+    background:#22c55e;
+    color:#fff;
 }
 
 .btn-whatsapp:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 30px rgba(34,197,94,.35);
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(34,197,94,.35);
 }
 
 .btn-login{
-border:1px solid rgba(255,255,255,.15);
-color:white;
-background:rgba(255,255,255,.05);
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.15);
+    color:#fff;
 }
 
 .btn-login:hover{
-transform:translateY(-4px);
-background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.1);
+    transform:translateY(-4px);
 }
 
 /* ESTATÍSTICAS */
