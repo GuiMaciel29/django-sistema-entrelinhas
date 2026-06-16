@@ -1,129 +1,240 @@
 {% load static %}
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entre Linhas Gráfica</title>
 
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+```
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+```
+
 </head>
+
 <body>
 
 <header>
-    <div class="logo">
-        ENTRE LINHAS GRÁFICA
-    </div>
 
-    <nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
-        <a href="{% url 'novo_pedido' %}">Pedidos</a>
-    </nav>
+```
+<div class="logo">
+    ENTRE LINHAS
+</div>
+
+<nav>
+
+    <a href="#servicos">Serviços</a>
+
+    <a href="#contato">Contato</a>
+
+    <a href="{% url 'login' %}">
+        Login
+    </a>
+
+</nav>
+```
+
 </header>
 
 <section class="hero">
 
-    <div class="hero-content">
+```
+<div class="hero-content">
 
-        <h1>Transformamos suas ideias em impressões de qualidade</h1>
+    <h1>
+        Transformamos suas ideias em impressões de alta qualidade
+    </h1>
 
-        <p>
-            Banners, adesivos, cartões, camisas, fachadas,
-            canecas personalizadas e muito mais.
-        </p>
+    <p>
+        Cartões, banners, adesivos, camisas,
+        canecas personalizadas, fachadas,
+        encadernações e muito mais.
+    </p>
 
-        <a href="{% url 'novo_pedido' %}" class="btn">
-            Solicitar Orçamento
+    <div class="hero-buttons">
+
+        <a
+            href="https://wa.me/5581999999999?text=Olá! Gostaria de solicitar um orçamento."
+            target="_blank"
+            class="btn-whatsapp"
+        >
+            📲 Solicitar Orçamento
+        </a>
+
+        <a
+            href="{% url 'login' %}"
+            class="btn-login"
+        >
+            🔐 Entrar no Sistema
         </a>
 
     </div>
+
+</div>
+```
 
 </section>
 
 <section class="estatisticas">
 
-    <div class="card-estat">
-        <h2>500+</h2>
-        <p>Clientes Atendidos</p>
-    </div>
+```
+<div class="card-estat">
+    <h2>500+</h2>
+    <p>Clientes Atendidos</p>
+</div>
 
-    <div class="card-estat">
-        <h2>2000+</h2>
-        <p>Pedidos Entregues</p>
-    </div>
+<div class="card-estat">
+    <h2>2000+</h2>
+    <p>Pedidos Entregues</p>
+</div>
 
-    <div class="card-estat">
-        <h2>99%</h2>
-        <p>Satisfação</p>
-    </div>
+<div class="card-estat">
+    <h2>99%</h2>
+    <p>Satisfação dos Clientes</p>
+</div>
+```
 
 </section>
 
 <section id="servicos">
 
-    <h2>Nossos Serviços</h2>
+```
+<h2>Nossos Serviços</h2>
 
-    <div class="grid-servicos">
+<div class="grid-servicos">
 
-        <div class="servico">
-            <img src="{% static 'img/banner.jpg' %}" alt="">
-            <h3>Banner</h3>
-        </div>
-
-        <div class="servico">
-            <img src="{% static 'img/cartao.jpg' %}" alt="">
-            <h3>Cartão de Visita</h3>
-        </div>
-
-        <div class="servico">
-            <img src="{% static 'img/adesivo.jpg' %}" alt="">
-            <h3>Adesivos</h3>
-        </div>
-
-        <div class="servico">
-            <img src="{% static 'img/camisa.jpg' %}" alt="">
-            <h3>Camisas</h3>
-        </div>
-
-        <div class="servico">
-            <img src="{% static 'img/caneca.jpg' %}" alt="">
-            <h3>Canecas</h3>
-        </div>
-
-        <div class="servico">
-            <img src="{% static 'img/fachada.jpg' %}" alt="">
-            <h3>Fachadas</h3>
-        </div>
-
+    <div class="servico">
+        <img src="{% static 'img/banner.jpg' %}" alt="Banner">
+        <h3>Banners</h3>
     </div>
+
+    <div class="servico">
+        <img src="{% static 'img/cartao.jpg' %}" alt="Cartão">
+        <h3>Cartões de Visita</h3>
+    </div>
+
+    <div class="servico">
+        <img src="{% static 'img/adesivo.jpg' %}" alt="Adesivos">
+        <h3>Adesivos</h3>
+    </div>
+
+    <div class="servico">
+        <img src="{% static 'img/camisa.jpg' %}" alt="Camisas">
+        <h3>Camisas Personalizadas</h3>
+    </div>
+
+    <div class="servico">
+        <img src="{% static 'img/caneca.jpg' %}" alt="Canecas">
+        <h3>Canecas Personalizadas</h3>
+    </div>
+
+    <div class="servico">
+        <img src="{% static 'img/fachada.jpg' %}" alt="Fachadas">
+        <h3>Fachadas Comerciais</h3>
+    </div>
+
+</div>
+```
+
+</section>
+
+<section class="vantagens">
+
+```
+<h2>Por Que Escolher a Entre Linhas?</h2>
+
+<div class="vantagens-grid">
+
+    <div class="vantagem">
+        <h3>⚡ Entrega Rápida</h3>
+        <p>
+            Produção ágil e compromisso com prazos.
+        </p>
+    </div>
+
+    <div class="vantagem">
+        <h3>🎨 Artes Personalizadas</h3>
+        <p>
+            Projetos exclusivos para empresas e eventos.
+        </p>
+    </div>
+
+    <div class="vantagem">
+        <h3>🏆 Qualidade Premium</h3>
+        <p>
+            Impressões com excelente acabamento.
+        </p>
+    </div>
+
+</div>
+```
 
 </section>
 
 <section class="cta">
 
-    <h2>Pronto para fazer seu pedido?</h2>
+```
+<h2>
+    Pronto para transformar sua ideia em realidade?
+</h2>
 
-    <a href="{% url 'novo_pedido' %}" class="btn">
-        Fazer Pedido
-    </a>
+<br>
+
+<a
+    href="https://wa.me/5581999999999?text=Olá! Gostaria de solicitar um orçamento."
+    target="_blank"
+>
+    Solicitar Orçamento Agora
+</a>
+```
 
 </section>
 
 <section id="contato">
 
-    <h2>Contato</h2>
+```
+<h2>Contato</h2>
 
-    <p>WhatsApp: (81) 99999-9999</p>
+<br>
 
-    <p>Email: contato@entrelinhas.com</p>
+<p>
+    📲 WhatsApp: (81) 99999-9999
+</p>
+
+<br>
+
+<p>
+    📧 Email: contato@entrelinhas.com
+</p>
+
+<br>
+
+<p>
+    📍 Arcoverde - Pernambuco
+</p>
+```
 
 </section>
 
 <footer>
+
+```
+<p>
     © 2026 Entre Linhas Gráfica
+</p>
+
+<br>
+
+<p>
+    Todos os direitos reservados.
+</p>
+```
+
 </footer>
 
 </body>
+
 </html>

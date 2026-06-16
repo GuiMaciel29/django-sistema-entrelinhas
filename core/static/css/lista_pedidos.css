@@ -1,203 +1,267 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  }
 
 body {
-    background: #f1f5f9;
-    padding: 30px;
+background: #f1f5f9;
+padding: 30px;
 }
 
 /* CONTAINER */
 
 .container {
-    max-width: 1400px;
-    margin: auto;
+max-width: 1400px;
+margin: auto;
 }
 
 /* TOPO */
 
 .topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 25px;
 }
 
 .topo h1 {
-    color: #0f172a;
-    font-size: 32px;
+color: #0f172a;
+font-size: 34px;
+font-weight: 700;
+}
+
+/* BOTÕES SUPERIORES */
+
+.botoes-topo {
+display: flex;
+gap: 10px;
+}
+
+.btn-novo,
+.btn-dashboard {
+text-decoration: none;
+padding: 12px 20px;
+border-radius: 10px;
+color: white;
+font-weight: 600;
+transition: 0.3s;
 }
 
 .btn-novo {
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: .3s;
+background: #2563eb;
 }
 
 .btn-novo:hover {
-    background: #1d4ed8;
+background: #1d4ed8;
 }
 
-.btn-voltar {
-    background: #6c757d;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: .3s;
+.btn-dashboard {
+background: #64748b;
 }
 
-.btn-voltar:hover {
-    background: #5a6268;
+.btn-dashboard:hover {
+background: #475569;
 }
 
 /* BUSCA */
 
 .busca {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
+display: flex;
+gap: 10px;
+margin-bottom: 25px;
 }
 
 .busca input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    outline: none;
+flex: 1;
+padding: 14px;
+border: 1px solid #cbd5e1;
+border-radius: 10px;
+font-size: 15px;
+outline: none;
+}
+
+.busca input:focus {
+border-color: #2563eb;
 }
 
 .busca button {
-    background: #0f172a;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+background: #0f172a;
+color: white;
+border: none;
+padding: 14px 25px;
+border-radius: 10px;
+cursor: pointer;
+transition: .3s;
+}
+
+.busca button:hover {
+background: #1e293b;
 }
 
 /* TABELA */
 
 .tabela-container {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+background: white;
+border-radius: 15px;
+overflow: hidden;
+box-shadow: 0 5px 25px rgba(0,0,0,.08);
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+width: 100%;
+border-collapse: collapse;
 }
 
 thead {
-    background: #0f172a;
-    color: white;
+background: #0f172a;
+color: white;
 }
 
 thead th {
-    padding: 15px;
-    text-align: left;
+padding: 16px;
+text-align: left;
+font-size: 14px;
+font-weight: 600;
 }
 
 tbody td {
-    padding: 15px;
-    border-bottom: 1px solid #e2e8f0;
+padding: 15px;
+border-bottom: 1px solid #e2e8f0;
+color: #334155;
 }
 
 tbody tr:hover {
-    background: #f8fafc;
+background: #f8fafc;
 }
 
 /* STATUS */
 
 .status {
-    padding: 6px 12px;
-    border-radius: 20px;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
+padding: 6px 12px;
+border-radius: 20px;
+color: white;
+font-size: 12px;
+font-weight: 600;
 }
 
 .orcamento {
-    background: #f59e0b;
+background: #f59e0b;
 }
 
 .producao {
-    background: #3b82f6;
+background: #3b82f6;
 }
 
 .pronto {
-    background: #22c55e;
+background: #22c55e;
 }
 
 .entregue {
-    background: #16a34a;
+background: #16a34a;
 }
 
-/* BOTÕES */
+/* AÇÕES */
 
 .acoes {
-    display: flex;
-    gap: 8px;
+display: flex;
+gap: 8px;
+}
+
+.btn-editar,
+.btn-excluir,
+.btn-ver {
+text-decoration: none;
+color: white;
+padding: 8px 12px;
+border-radius: 8px;
+transition: .3s;
+display: inline-block;
 }
 
 .btn-editar {
-    text-decoration: none;
-    background: #3b82f6;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
+background: #3b82f6;
+}
+
+.btn-editar:hover {
+background: #2563eb;
 }
 
 .btn-excluir {
-    text-decoration: none;
-    background: #ef4444;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
+background: #ef4444;
+}
+
+.btn-excluir:hover {
+background: #dc2626;
 }
 
 .btn-ver {
-    text-decoration: none;
-    background: #22c55e;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
+background: #22c55e;
+}
+
+.btn-ver:hover {
+background: #16a34a;
+}
+
+/* VALORES */
+
+.valor {
+color: #2563eb;
+font-weight: 600;
+}
+
+.sinal {
+color: #22c55e;
+font-weight: 600;
+}
+
+.saldo {
+color: #ef4444;
+font-weight: 700;
+}
+
+/* SEM RESULTADOS */
+
+.vazio {
+text-align: center;
+padding: 30px;
+color: #64748b;
+font-size: 16px;
 }
 
 /* RESPONSIVO */
 
 @media (max-width: 1000px) {
 
-    body {
-        padding: 15px;
-    }
 
-    .topo {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
+body {
+    padding: 15px;
+}
 
-    .busca {
-        flex-direction: column;
-    }
+.topo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
 
-    .tabela-container {
-        overflow-x: auto;
-    }
+.botoes-topo {
+    width: 100%;
+    flex-wrap: wrap;
+}
 
-    table {
-        min-width: 1200px;
-    }
+.busca {
+    flex-direction: column;
+}
+
+.tabela-container {
+    overflow-x: auto;
+}
+
+table {
+    min-width: 1200px;
+}
+
 
 }
+

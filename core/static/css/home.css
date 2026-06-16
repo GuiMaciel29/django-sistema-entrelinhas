@@ -1,166 +1,262 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:#f4f6f9;
+background:#f8fafc;
+color:#1e293b;
 }
 
-header{
-    background:#0f172a;
-    color:white;
-    padding:20px 50px;
+/* HEADER */
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+header{
+position:sticky;
+top:0;
+z-index:100;
+background:#0f172a;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .logo{
-    font-size:24px;
-    font-weight:bold;
+color:white;
+font-size:24px;
+font-weight:700;
+}
+
+nav{
+display:flex;
+gap:25px;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
+color:white;
+text-decoration:none;
+font-weight:500;
 }
 
+nav a:hover
+
+/* HERO */
+
 .hero{
-    height:70vh;
+min-height:80vh;
+background:linear-gradient(
+rgba(15,23,42,.85),
+rgba(15,23,42,.85)
+),
+url("../img/banner.jpg");
 
-    background:linear-gradient(
-        rgba(0,0,0,.6),
-        rgba(0,0,0,.6)
-    );
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+background-size:cover;
+background-position:center;
 
-    text-align:center;
-    color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+
+
 }
 
 .hero-content{
-    max-width:700px;
+max-width:800px;
 }
 
 .hero h1{
-    font-size:48px;
-    margin-bottom:20px;
+color:white;
+font-size:55px;
+margin-bottom:20px;
 }
 
 .hero p{
-    font-size:20px;
-    margin-bottom:30px;
+color:#e2e8f0;
+font-size:22px;
+margin-bottom:30px;
 }
 
-.btn{
-    background:#2563eb;
-    color:white;
-    padding:15px 30px;
-    text-decoration:none;
-    border-radius:8px;
-    transition:.3s;
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
-.btn:hover{
-    background:#1d4ed8;
+.btn-whatsapp,
+.btn-login{
+padding:15px 30px;
+border-radius:12px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
 }
+
+.btn-whatsapp{
+background:#22c55e;
+color:white;
+}
+
+.btn-whatsapp:hover{
+transform:translateY(-4px);
+}
+
+.btn-login{
+background:#2563eb;
+color:white;
+}
+
+.btn-login:hover{
+transform:translateY(-4px);
+}
+
+/* ESTATÍSTICAS */
 
 .estatisticas{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    padding:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+padding:60px 8%;
 }
 
 .card-estat{
-    background:white;
-    padding:30px;
-    width:220px;
-    text-align:center;
-
-    border-radius:12px;
-
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
+background:white;
+border-radius:16px;
+text-align:center;
+padding:30px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 .card-estat h2{
-    color:#2563eb;
-    margin-bottom:10px;
+color:#2563eb;
+font-size:42px;
 }
 
+/* SERVIÇOS */
+
 #servicos{
-    padding:80px 50px;
+padding:70px 8%;
 }
 
 #servicos h2{
-    text-align:center;
-    margin-bottom:50px;
+text-align:center;
+margin-bottom:40px;
+font-size:38px;
 }
 
 .grid-servicos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .servico{
-    background:white;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 .servico img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+width:100%;
+height:220px;
+object-fit:cover;
 }
 
 .servico h3{
-    padding:20px;
-    text-align:center;
+text-align:center;
+padding:20px;
 }
 
+/* VANTAGENS */
+
+.vantagens{
+padding:70px 8%;
+background:white;
+}
+
+.vantagens h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+.vantagens-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.vantagem{
+padding:25px;
+border-radius:15px;
+background:#f8fafc;
+text-align:center;
+}
+
+/* CTA */
+
 .cta{
-    background:#2563eb;
-    color:white;
-
-    text-align:center;
-
-    padding:80px 20px;
+background:#2563eb;
+color:white;
+text-align:center;
+padding:70px 20px;
 }
 
 .cta h2{
-    margin-bottom:25px;
+margin-bottom:20px;
 }
 
+.cta a{
+background:white;
+color:#2563eb;
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* CONTATO */
+
 #contato{
-    text-align:center;
-    padding:70px 20px;
+padding:70px 8%;
+text-align:center;
 }
 
 #contato h2{
-    margin-bottom:20px;
+margin-bottom:20px;
 }
 
-#contato p{
-    margin:10px 0;
-}
+/* FOOTER */
 
 footer{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:25px;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+
+header{
+    flex-direction:column;
+    gap:15px;
+}
+
+.hero h1{
+    font-size:36px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+
 }
