@@ -1,84 +1,84 @@
+{% extends 'admin_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Entre Linhas</title>
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-</head>
-<body>
 
-<div class="sidebar">
-    <div class="logo">
-        <h2>Entre Linhas</h2>
-    </div>
-    <nav>
-        <a href="{% url 'dashboard' %}" class="active">📊 Dashboard</a>
-        <a href="{% url 'lista_pedidos' %}">📋 Pedidos</a>
-        <a href="{% url 'estoque' %}">📦 Estoque</a>
-        <a href="{% url 'receitas' %}">💰 Receitas</a>
-        <a href="{% url 'despesas' %}">💸 Despesas</a>
-        <a href="/admin/">⚙ Administração</a>
-        <a href="{% url 'logout' %}">🚪 Sair</a>
-    </nav>
-</div>
+{% block content %}
 
-<div class="main">
+<div class="dashboard-header">
 
-    <header>
+    <div>
         <h1>Painel Administrativo</h1>
-        <p>Controle completo da gráfica</p>
-    </header>
-
-    <!-- Financeiro -->
-    <section class="cards">
-        <div class="card receita">
-            <h3>Receitas</h3>
-            <div class="valor">R$ {{ receitas }}</div>
-        </div>
-        <div class="card despesa">
-            <h3>Despesas</h3>
-            <div class="valor">R$ {{ despesas }}</div>
-        </div>
-        <div class="card lucro">
-            <h3>Lucro</h3>
-            <div class="valor">R$ {{ lucro }}</div>
-        </div>
-        <div class="card pedidos">
-            <h3>Total Pedidos</h3>
-            <div class="valor">{{ total_pedidos }}</div>
-        </div>
-    </section>
-
-    <!-- Status dos pedidos -->
-    <section class="cards">
-        <div class="card status">
-            <h3>Em Produção</h3>
-            <div class="valor">{{ producao }}</div>
-        </div>
-        <div class="card status">
-            <h3>Prontos</h3>
-            <div class="valor">{{ prontos }}</div>
-        </div>
-        <div class="card status">
-            <h3>Entregues</h3>
-            <div class="valor">{{ entregues }}</div>
-        </div>
-    </section>
-
-    <!-- Atalhos -->
-    <section class="atalhos">
-        <h2>Acesso Rápido</h2>
-        <div class="atalhos-grid">
-            <a href="{% url 'novo_pedido' %}" class="atalho">➕ Novo Pedido</a>
-            <a href="{% url 'novo_produto' %}" class="atalho">📦 Novo Produto</a>
-            <a href="{% url 'nova_receita' %}" class="atalho">💰 Nova Receita</a>
-            <a href="{% url 'nova_despesa' %}" class="atalho">💸 Nova Despesa</a>
-        </div>
-    </section>
+        <p>Bem-vindo ao sistema Entre Linhas</p>
+    </div>
 
 </div>
 
-</body>
-</html>
+<div class="cards-grid">
+
+    <div class="card receita">
+        <h3>Receitas</h3>
+        <span>R$ {{ receitas }}</span>
+    </div>
+
+    <div class="card despesa">
+        <h3>Despesas</h3>
+        <span>R$ {{ despesas }}</span>
+    </div>
+
+    <div class="card lucro">
+        <h3>Lucro</h3>
+        <span>R$ {{ lucro }}</span>
+    </div>
+
+    <div class="card pedidos">
+        <h3>Pedidos em Produção</h3>
+        <span>{{ producao }}</span>
+    </div>
+
+</div>
+
+<div class="atalhos">
+
+    <h2>Ações Rápidas</h2>
+
+    <div class="atalhos-grid">
+
+        <a href="{% url 'novo_pedido' %}" class="atalho">
+            ➕ Novo Pedido
+        </a>
+
+        <a href="{% url 'novo_produto' %}" class="atalho">
+            📦 Novo Produto
+        </a>
+
+        <a href="{% url 'nova_receita' %}" class="atalho">
+            💰 Nova Receita
+        </a>
+
+        <a href="{% url 'nova_despesa' %}" class="atalho">
+            💸 Nova Despesa
+        </a>
+
+    </div>
+
+</div>
+
+<div class="status-grid">
+
+    <div class="status-card">
+        <h3>Em Produção</h3>
+        <span>{{ producao }}</span>
+    </div>
+
+    <div class="status-card">
+        <h3>Prontos</h3>
+        <span>{{ prontos }}</span>
+    </div>
+
+    <div class="status-card">
+        <h3>Entregues</h3>
+        <span>{{ entregues }}</span>
+    </div>
+
+</div>
+
+{% endblock %}

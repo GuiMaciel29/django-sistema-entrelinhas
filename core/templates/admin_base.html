@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Entre Linhas ERP</title>
+
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+</head>
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <h2>ENTRE LINHAS</h2>
+    </div>
+
+    <nav>
+
+        <a href="{% url 'dashboard' %}">
+            📊 Dashboard
+        </a>
+
+        <a href="{% url 'lista_pedidos' %}">
+            📋 Pedidos
+        </a>
+
+        <a href="{% url 'estoque' %}">
+            📦 Estoque
+        </a>
+
+        <a href="{% url 'receitas' %}">
+            💰 Receitas
+        </a>
+
+        <a href="{% url 'despesas' %}">
+            💸 Despesas
+        </a>
+
+        <a href="/admin/">
+            ⚙ Administração
+        </a>
+
+        <a href="{% url 'logout' %}">
+            🚪 Sair
+        </a>
+
+    </nav>
+
+</div>
+
+<div class="main">
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>
