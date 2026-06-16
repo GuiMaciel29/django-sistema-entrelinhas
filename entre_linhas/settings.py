@@ -23,6 +23,7 @@ ALLOWED_HOSTS = [
 # ==================================================
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -152,3 +153,45 @@ LOGOUT_REDIRECT_URL = '/login/'
 # ==================================================
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ==================================================
+# JAZZMIN
+# ==================================================
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Entre Linhas Admin",
+    "site_header": "Entre Linhas",
+    "site_brand": "Entre Linhas",
+    "welcome_sign": "Bem-vindo ao painel Entre Linhas",
+    "copyright": "Entre Linhas © 2026",
+
+    # Ícone do topo (Font Awesome)
+    "site_icon": None,
+
+    # Tema de cores (bootswatch)
+    # Opções: cerulean, cosmo, cyborg, darkly, flatly, journal,
+    #         litera, lumen, lux, materia, minty, pulse, sandstone,
+    #         simplex, sketchy, slate, solar, spacelab, superhero,
+    #         united, yeti
+    "theme": "flatly",
+
+    # Links rápidos no topo
+    "topmenu_links": [
+        {"name": "Ver site", "url": "/", "new_window": True},
+    ],
+
+    # Ícones dos modelos (Font Awesome)
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "core.Pedido": "fas fa-file-alt",
+    },
+
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": ["auth", "core"],
+}
